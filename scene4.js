@@ -1,4 +1,3 @@
-
 // scene4.js
 
 Promise.all([
@@ -13,33 +12,37 @@ Promise.all([
         .attr("width", width)
         .attr("height", height);
 
-    // Match object name
+    // ✅ Using verified object name from your TopoJSON
     const counties = topojson.feature(topoData, topoData.objects.il_counties).features;
 
-    // Prepare a map from FIPS to COVID data
-    const covidMap = new Map(covidData.map(d => [d.fips, +d.cases]));
+    // ✅ Prepare a FIPS->Cases map
+    const covidMap = new Map(covidData.map(d => [String(d.fips).padStart(5, "0"), +d.cases]));
 
-    // Define color scale
     const color = d3.scaleSequential()
         .domain([0, d3.max(covidData, d => +d.cases)])
         .interpolator(d3.interpolateReds);
 
-    // Define projection and path
-    const projection = d3.geoAlbersUsa().fitSize([width, height], {type: "FeatureCollection", features: counties});
+    const projection = d3.geoAlbersUsa()
+        .fitSize([width, height], { type: "FeatureCollection", features: counties });
+
     const path = d3.geoPath().projection(projection);
 
-    // Draw counties
     svg.selectAll("path")
         .data(counties)
         .enter()
         .append("path")
         .attr("d", path)
-        .attr("fill", d => color(covidMap.get(d.id) || 0))
+        .attr("fill", d => {
+            const fips = d.id;
+            const cases = covidMap.get(fips);
+            return cases ? color(cases) : "#eee";
+        })
         .attr("stroke", "#fff")
         .attr("stroke-width", 0.5)
         .append("title")
         .text(d => {
-            const cases = covidMap.get(d.id) || 0;
+            const fips = d.id;
+            const cases = covidMap.get(fips) || 0;
             return `${d.properties.name}: ${cases.toLocaleString()} cases`;
         });
 
