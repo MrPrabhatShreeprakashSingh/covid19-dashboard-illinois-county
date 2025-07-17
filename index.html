@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Narrative Visualization</title>
+  <link rel="stylesheet" type="text/css" href="styles/fullpage.min.css">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+
+  <div id="fullpage">
+    <div class="section">
+
+      <div class="slide" data-anchor="welcome">
+        <h1>COVID-19 in Illinois: County-Level Trends and Insights</h1>
+        <div class="intro">
+          <p>&nbsp;</p>
+          <div>Created by Prabhat Singh for CS416 Data Visualization at UIUC</div>
+          <p style="margin-top: 1rem;">
+            This interactive narrative visualization explores how COVID-19 unfolded across Illinois counties by combining temporal, spatial, and statistical perspectives.
+          </p>
+          <p>            
+            The visual story investigates disparities in case spread, mortality, and impact across different regions and population types urban, suburban, and rural.
+          </p>
+          <p>             
+            The goal is to reveal how <strong>COVID-19’s severity, pace, and geographic footprint varied and what these patterns tell us about vulnerability, response, and population structure across the state.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="slide" data-anchor="dataset">
+        <h2>The Dataset</h2>
+        <div class="intro">
+          <p>
+            This dataset from the New York Times chronicles daily COVID-19 cases and deaths across all 103 counties in Illinois,
+            spanning from January 24, 2020 to May 13, 2022.
+          </p>
+          <p>
+            Each row represents the cumulative case and death count for a county on a specific day. The dataset enables
+            exploration of trends over time, regional disparities, and key surge events.
+          </p>
+          <p>
+            The primary research question: <strong>How did COVID-19's spread, severity, and impact differ over time and space across Illinois counties and what correlations emerge between population type, case volume, and mortality trends?</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="slide" data-anchor="about1">
+        <h2>About the Visualization</h2>
+        <div class="intro">
+          <p>
+            <strong>Messaging : </strong>
+            While COVID-19 affected all of Illinois, its impact varied significantly by county shaped by regional density, healthcare infrastructure, and population vulnerability. 
+            This visualization unpacks how these differences emerged across time, geography, and severity.
+          </p>          
+          <p>
+            <strong>Narrative Structure : </strong>
+            This narrative visualization follows a Martini Glass structure, a storytelling format that begins with a linear, guided narrative and transitions into a space for user-driven exploration.
+          </p>   
+          <p>
+            <strong>1. Introductory scenes </strong>
+            provide important context about the dataset and the motivation behind the analysis.
+          </p>    
+          <p>
+            <strong>2. The narrative then unfolds through a fixed sequence of scenes</strong>
+             each presenting a different perspective (time evolution, spatial comparison, correlation, ranked impact).
+          </p>   
+          <p>
+            <strong>3. Toward the end</strong>
+             more interactive charts (like the log/linear scatter plot and choropleth map with dropdown filter) enable exploratory analysis.
+          </p>  
+          <p>
+            <strong>Visual Structure : </strong>
+            Each scene in the visualization follows a consistent visual template to aid comprehension and reinforce continuity throughout the story
+          </p>
+          <p>
+            <strong>1. Each slide </strong>
+             contains a title, a central interactive chart, and a supporting narrative block below or beside the visualization. 
+          </p>    
+          <p>
+            <strong>2. Dropdowns, legends, and tooltips </strong>
+             are styled consistently across scenes for cohesion. 
+          </p>   
+          <p>
+            <strong>3. d3.interpolateTurbo </strong>
+             for choropleth maps to emphasize regional case differences. Distinct color mapping in the scatter plot to highlight tiers of severity. 
+             Grayscale dimming of unselected counties in dropdown filtering ensures attention remains on the focus region. 
+          </p>                                                                                  
+          <p>
+            <strong>4. Interactive Slideshow </strong>
+            allows narrative visualization follows an interactive slideshow structure to guide users through various selected scenarios. Four scenes have been included in this visualization using consistent template and layout.
+            User's can navigate through the slideshow by clicking the arrows on the left/right sides of the screen, clicking the navigation dots on top, or using the left/right buttons on a keyboard.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide" data-anchor="about2">
+        <h2>About the Visualization</h2>
+        <div class="intro">          
+          <p>
+            <strong>Scenes</strong>
+            The narrative visualization is structured into five sequential scenes, each designed to progressively build the user’s understanding of COVID-19 trends across Illinois counties. 
+            Each scene focuses on a different analytical dimension time, space, correlation, ranking culminating in a multifaceted story.
+          </p>
+          <p>
+            <strong>Interactive Time Slider(Bubble Timeline Chart) : </strong>
+            Chart 1 dynamic bubble chart allows users to explore how the COVID-19 pandemic evolved across Illinois counties over time. 
+            The chart encourages temporal exploration and regional comparisons.
+          </p>
+          <p>
+            <strong>County-Level Mapping with Dropdown Filter(Choropleth Map) : </strong>
+            Charts 2 choropleth map displays the spatial distribution of cumulative COVID-19 cases across all Illinois counties.
+            A dropdown menu at the top allows filtering and highlighting a specific county.
+          </p>
+          <p>
+            <strong>Correlation Analysis Using Log Scale(Scatter Plot) : </strong>
+            Charts 3 scatter plot investigates the relationship between total COVID-19 cases and deaths per county. 
+            The log-scale transformation enhances visibility of smaller counties while preserving proportionality.
+            Dropdown enables isolating a single county for contextual focus. Switch button toggles log/linear modes
+          </p>
+          <p>
+            <strong>Direct Volume Comparison with Linear Scale(Scatter Plot) : </strong>
+            Charts 3 scatter plot with linear scale to reveal actual case and death totals. 
+            Ideal for emphasizing raw volume differences rather than proportional relationships. 
+            Switch button toggles log/linear modes
+          </p>
+          <p>
+            <strong>Ranked Comparison Across Counties(Bar Chart) : </strong>
+            Charts 4 horizontal bar chart ranks the 15 most impacted counties based on cumulative confirmed COVID-19 cases. 
+            Urban, suburban, and rural counties are color-coded for demographic comparison.
+          </p>                     
+        </div>
+      </div>  
+      <div class="slide" data-anchor="about3">
+        <h2>Annotations</h2>
+        <div class="intro">          
+          <p>
+            <strong>Scene 1 (Bubble Timeline):  </strong>
+            Temporal annotations indicate key surge dates (e.g., Nov 2020), supported by timeline progression. Bubble size changes act as implicit annotations showing growth trends.
+          </p>
+          <p>
+            <strong>Scene 2 (Choropleth Map):  </strong>
+            Hoverable tooltips provide case counts per county. The county dropdown acts as a pseudo-annotation by visually emphasizing the selected region.
+          </p>
+          <p>
+            <strong>Scene 3 & 4 (Scatter Plot): </strong>
+            Annotations appear through interaction. Dropdown filtering isolates a county and adjusts axes to spotlight its outlier or typical behavior. 
+            The log/linear toggle is an implicit annotation that changes interpretive context.
+          </p>
+          <p>
+            <strong>Scene 5 (Bar Chart): </strong>
+            Direct labeling of top counties (e.g., Cook, DuPage) reinforces their ranking without needing interactivity. 
+            Bars are color-coded to subtly cue demographic type (urban, rural).
+          </p>
+          <p>
+            <strong>Dynamic vs Static Annotations </strong>
+            Static annotations used in bar chart and choropleth map to provide consistent reading without requiring interaction.
+            Dynamic annotations used in scatter plots and bubble timeline where tooltips and dropdown-triggered zooming function as interactive annotations.
+          </p>                     
+        </div>
+      </div>             
+
+      <div class="slide" data-anchor="scene-bubble">
+        <h2>County-Level COVID-19 Impact in Illinois</h2>
+        <div id="scene-bubble" class="chart-container"></div>
+        <div class="intro" style="font-size: 0.80rem; line-height: 1.4;">                                        
+        </div>
+      </div>  
+
+      <div class="slide" data-anchor="scene-map">
+        <h2>COVID-19 Cases by County in Illinois</h2>
+        <div id="scene-map" class="chart-container"></div>
+        <div class="intro" style="font-size: 0.80rem; line-height: 1.4;">
+          <p>
+            This choropleth map displays the geographic distribution of COVID-19 case counts across all counties in Illinois.
+            Darker shades represent higher case volumes, with Cook County in the northeast standing out due to its large population and elevated case totals.
+          </p>
+          <div class="summary-box" style="margin-top: 1.5rem; padding: 12px; border-left: 4px solid #3182bd; background-color: #f9f9f9; font-size: 0.78rem; line-height: 1.5;">
+            <strong>Key Insights:</strong>
+            <ul style="padding-left: 1.2rem; margin: 0;">
+              <li><strong>Dropdown Menu</strong> allows to filter and highlight a specific county. It visually emphasize the selected region by increasing its border width. Dims surrounding counties to draw focus. Retains the color intensity representing case volume.</li>
+              <li>Use the dropdown to explore how case counts vary across counties and identify regional outliers or hotspots. Hover over any county for exact case numbers.</li>
+              <li>This feature enhances exploratory analysis by making it easier to isolate and compare individual counties revealing how pandemic impact varied not just geographically but also by population density and local response.</li>
+            </ul>
+          </div>          
+        </div>
+      </div>
+
+      <div class="slide" data-anchor="scene-scatter">
+        <h2>Log-Scale Scatter Plot: COVID-19 Cases vs. Deaths</h2>
+        <div style="text-align: center; margin-bottom: 10px;">
+          <button id="toggle-scale-btn">Switch to Linear Scale</button>
+        </div>
+        <div id="scatter-container" class="chart-container"></div>
+        <div class="intro" style="font-size: 0.70rem; line-height: 1.2;">
+          <p>
+            This scatter plot presents each Illinois county’s cumulative COVID-19 case and death totals using a <strong>log-scale transformation</strong>. 
+            The color gradient represents case severity tiers, helping reveal correlations and outliers across regions.
+          </p>
+          <p>
+            You can <strong>toggle between logarithmic and linear views</strong> using the button above to explore relationships across both large and small counties.
+          </p>
+          <p>
+            <strong>New:</strong> Use the <em>county filter dropdown</em> to isolate data for a specific county. When a county is selected, the axes automatically rescale to highlight that county’s position in context.
+          </p>
+          <p>
+            <strong>Tip:</strong> Hover over a dot to view detailed case and death counts for the selected region.
+          </p>
+          <div class="summary-box" style="margin-top: 1.5rem; padding: 12px; border-left: 4px solid #3182bd; background-color: #f9f9f9; font-size: 0.78rem; line-height: 1.5;">
+            <strong>Key Insights:</strong>
+            <ul style="padding-left: 1.2rem; margin: 0;">
+              <li><strong>Log scale</strong> reveals more nuanced variation in smaller counties often hidden in linear plots.</li>
+              <li>Counties with higher deaths per case cluster toward the top indicating elevated fatality ratios.</li>
+              <li><strong>Cook County</strong> stands out as a major outlier in both case and death volume.</li>
+              <li>Use the <strong>dropdown filter</strong> to zoom into specific county-level insights with dynamic axis rescaling.</li>
+              <li>Toggle view to <strong>compare patterns under linear scaling</strong>, especially helpful when zooming into lower ranges.</li>
+            </ul>
+          </div>
+        </div>
+      </div>         
+
+      <div class="slide" data-anchor="scene-bar">
+        <h2>Top 15 Illinois Counties by COVID-19 Cases</h2>
+        <div id="scene-bar" class="chart-container"></div>
+        <div class="intro" style="font-size: 0.80rem; line-height: 1.4;">
+          <p>
+            This horizontal bar chart presents the 15 Illinois counties with the highest cumulative COVID-19 case counts based on data from the New York Times repository. 
+            The counties are sorted in descending order, with Cook County home to Chicago emerging as the most heavily impacted, reporting over 1.2 million confirmed cases.
+          </p>
+          <p>
+            The visualization highlights the significant disparities in case volumes across counties, with urban and suburban areas such as DuPage, Will, and Lake showing markedly higher totals compared to rural regions. 
+            These patterns reflect both population density and testing access, offering insight into how the virus affected communities differently across the state.
+          </p>
+          <p>
+            This chart complements the earlier map-based view by providing a clear, rank-based comparison and underscores the disproportionate burden borne by Illinois' largest population centers.
+          </p>
+        </div>
+      </div> 
+    
+      <div class="slide" data-anchor="source">
+        <h2>Sources</h2>
+        <div class="intro">
+          <p>
+            <strong>Dataset</strong><br/>
+            <a href="https://github.com/nytimes/covid-19-data" target="_blank">
+              https://github.com/nytimes/covid-19-data
+            </a>
+          </p>
+          <p>
+            <strong>Fullpage.js (used for slideshow)</strong><br/>
+            <a href="https://mrprabhatshreeprakashsingh.github.io/covid19-dashboard-illinois-county/" target="_blank">
+             https://mrprabhatshreeprakashsingh.github.io/covid19-dashboard-illinois-county/
+            </a>
+          </p>
+          <p>
+            <strong>Source code</strong><br/>
+            <a href="https://github.com/MrPrabhatShreeprakashSingh/covid19-dashboard-illinois-county" target="_blank">
+              GitHub Repository
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="scripts/scrolloverflow.min.js"></script>
+  <script src="scripts/fullpage.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/d3-color.v1.min.js"></script>
+  <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/map.js"></script>
+  <script src="scripts/bar.js"></script>
+  <script src="scripts/bubble.js"></script>
+  <script src="scripts/scatter.js"></script>
+</body>
+</html>

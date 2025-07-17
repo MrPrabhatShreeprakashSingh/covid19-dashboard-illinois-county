@@ -1,0 +1,111 @@
+/* Reset CSS
+ * --------------------------------------- */
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, input, textarea, p, blockquote, th, td {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-spacing: 0;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-weight: normal;
+  font-style: normal;
+}
+
+strong {
+  font-weight: bold;
+}
+
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+caption, th {
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
+
+q:before, q:after {
+  content: '';
+}
+
+abbr, acronym {
+  border: 0;
+}
+
+/* Layout Custom CSS
+ * --------------------------------------- */
+
+body {
+  font-family: arial, helvetica;
+  color: #333;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.wrap {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  position: relative;
+}
+
+h1 {
+  font-size: 5em;
+  margin: 20px auto;
+}
+h2 {
+  font-size: 3em;
+  margin: 20px auto;
+}
+h3 {
+  font-size: 2em;
+  margin: 50px auto 10px;
+}
+
+p {
+  font-size: 2em;
+}
+
+.intro p {
+  width: 70%;
+  margin: 20px auto;
+  font-size: 1.5em;
+  text-align: left;
+}
+
+.section {
+  text-align: center;
+}
+
+a {
+  color: #307483;
+}
+
+.fp-controlArrow.fp-prev {
+  border-color: transparent #333 transparent transparent;
+}
+.fp-controlArrow.fp-next {
+  border-color: transparent transparent transparent #333;
+}
+
